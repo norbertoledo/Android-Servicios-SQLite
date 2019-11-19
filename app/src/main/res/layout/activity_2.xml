@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity2"
+    android:background="@drawable/gradient_2">
+
+    <TextView
+        android:id="@+id/usersListText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="center"
+        android:textColor="#ccc"
+        app:layout_constraintBottom_toBottomOf="@+id/usersList"
+        app:layout_constraintEnd_toEndOf="@+id/usersList"
+        app:layout_constraintStart_toStartOf="@+id/usersList"
+        app:layout_constraintTop_toTopOf="@+id/usersList"
+        tools:text="userListText" />
+
+    <TextView
+        android:id="@+id/title_activity_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/title_activity_2"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCreateTable"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/btn_create_table"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnDeleteTable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_activity_2" />
+
+    <Button
+        android:id="@+id/btnDeleteTable"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="24dp"
+        android:text="@string/btn_delete_table"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnCreateTable"
+        app:layout_constraintTop_toTopOf="@+id/btnCreateTable" />
+
+    <Button
+        android:id="@+id/btnDeleteUsers"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="24dp"
+        android:text="@string/btn_delete_users"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAddUser"
+        app:layout_constraintTop_toTopOf="@+id/btnAddUser" />
+
+    <Button
+        android:id="@+id/btnAddUser"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="24dp"
+        android:text="@string/btn_add_user"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnDeleteUsers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDeleteTable" />
+
+    <Button
+        android:id="@+id/btnActivity1"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/naranja"
+        android:text="@string/btn_activity_1"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/usersList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnActivity1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDeleteUsers" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

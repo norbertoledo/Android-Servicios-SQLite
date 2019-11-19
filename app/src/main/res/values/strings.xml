@@ -1,0 +1,51 @@
+<resources>
+    <!-- GLOBAL -->
+    <string name="app_name">PAC M08</string>
+    <string name="btn_activity_1">Ir a Activity 1</string>
+    <string name="btn_activity_2">Ir a Activity 2</string>
+    <string name="btn_activity_3">Ir a Activity 3</string>
+
+
+    <!-- ACTIVITY 1 -->
+    <string name="title_activity_1">Ilerna PAC</string>
+    <string name="img_logo_ilerna">Logo Ilerna Online</string>
+    <string name="img_pinguinos">Pinguinos Ilerna Online</string>
+
+    <!-- ACTIVITY 2 -->
+    <string name="title_activity_2">Usuarios</string>
+    <string name="btn_create_table">Crear Tabla</string>
+    <string name="btn_delete_table">Eliminar Tabla</string>
+    <string name="btn_add_user">Crear Usuario</string>
+    <string name="btn_delete_users">Eliminar Usuarios</string>
+    <string name="btn_users_list">Listar Usuarios</string>
+
+    <string name="db_no_table">No existe una tabla!\nDebe crearla para agregar usuarios.</string>
+    <string name="db_no_users">No hay usuarios creados...</string>
+    <string name="image_profile">Foto de Perfil</string>
+    <string name="form_rb_male">Hombre</string>
+    <string name="form_rb_female">Mujer</string>
+    <string name="form_title">Nuevo Usuario</string>
+    <string name="form_placeholder_name">Nombre</string>
+    <string name="form_placeholder_surname">Apellido</string>
+    <string name="form_placeholder_phone">Teléfono</string>
+    <string name="form_btn_negative">Cancelar</string>
+    <string name="form_btn_positive">Guardar</string>
+
+    <!-- ACTIVITY 3 -->
+    <string name="title_activity_3">Servicios</string>
+    <string name="btn_start_service">Iniciar Servicio</string>
+    <string name="btn_stop_service">Detener Servicio</string>
+    <string name="rb01_service">Iniciar Música</string>
+    <string name="rb02_service">Detener Música</string>
+    <string name="rb03_service">Bloquear App</string>
+    <string name="msg_service_stopped">Servicio Detenido</string>
+    <string name="msg_service_started">Servicio Iniciado</string>
+    <string name="msg_service_already_started">Servicio Ya Iniciado</string>
+    <string name="msg_music_stopped">Música Detenida</string>
+    <string name="msg_music_started">Música Iniciada</string>
+    <string name="msg_app_blocked">App Bloqueda</string>
+
+
+
+
+</resources>
