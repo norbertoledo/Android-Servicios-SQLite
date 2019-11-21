@@ -11,9 +11,9 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-
         Intent i = new Intent(context, MyService.class);
 
+        // Validar si se recibe codigo de servicio
         if(intent.hasExtra(Activity3.SERVICE_CODE)){
 
             Bundle b = intent.getExtras();
@@ -22,6 +22,9 @@ public class MyReceiver extends BroadcastReceiver {
 
                 int code = b.getInt(Activity3.SERVICE_CODE);
 
+                // Si el codigo de servicio es 0, detiene el servicio
+                // Si el codigo de servicio es distinto de 0, inicia un servicio
+                // y envia como Extra el codigo de servicio recibido
                 if(code == 0){
                     Toast.makeText(context, R.string.msg_service_stopped, Toast.LENGTH_SHORT).show();
                     context.stopService(i);

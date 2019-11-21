@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class Activity3 extends AppCompatActivity {
 
-
+    // Declaraciones
     Button btnActivity1;
     Button btnStartService;
     Button btnStopService;
@@ -35,6 +35,7 @@ public class Activity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
+        // Instancias
         btnActivity1 = findViewById(R.id.btnActivity1);
         btnStartService = findViewById((R.id.btnStartService));
         btnStopService = findViewById((R.id.btnStopService));
@@ -44,7 +45,7 @@ public class Activity3 extends AppCompatActivity {
         rb03 = findViewById(R.id.rb03);
         
 
-        // RADIO BUTTONS
+        // Acciones de RadioButton
         rb01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,11 +68,14 @@ public class Activity3 extends AppCompatActivity {
         });
 
 
-        // BUTTONS
+        // Acciones de boton
+
+
+        // El boton de StartService primero evalua si el servicio que va a despachar
+        // es distinto al que se encuentra ejecutando. De lo contrario, lanza un Toast
         btnStartService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //btnStartService.setEnabled(false);
                 if(oldServiceCodeSelected!=serviceCodeSelected) {
                     btnStopService.setEnabled(true);
                     sendToBroadcast(serviceCodeSelected);
@@ -84,7 +88,6 @@ public class Activity3 extends AppCompatActivity {
         btnStopService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //btnStartService.setEnabled(true);
                 btnStopService.setEnabled(false);
                 sendToBroadcast(CODE_STOP_SERVICE);
             }
@@ -98,13 +101,15 @@ public class Activity3 extends AppCompatActivity {
             }
         });
 
+        // Setear por defecto el boton de startService como desactivado
         btnStopService.setEnabled(false);
 
-        // INITIAL CODE
+        // Setear un codigo inicial de servicio
         setInitialCode();
 
     }
 
+    // Setear el codigo inicial de servicio de acuerdo al radioButton que se encuentre seleccionado
     private void setInitialCode(){
         for(int i = 0; i < radioGroup.getChildCount(); i++ ) {
             RadioButton rb = (RadioButton) radioGroup.getChildAt(i);
@@ -116,10 +121,12 @@ public class Activity3 extends AppCompatActivity {
     }
 
 
+    // Setear el codigo de servicio de acuerdo a la nueva seleccion del usuario
     private void setServiceCode(int serviceCode){
         serviceCodeSelected = serviceCode;
     }
 
+    // Enviar al Broadcast el codigo de servicio actual e iniciarlo
     private void sendToBroadcast(int serviceCode){
         oldServiceCodeSelected = serviceCode;
         Intent intent = new Intent(this, MyReceiver.class);
@@ -127,6 +134,7 @@ public class Activity3 extends AppCompatActivity {
         sendBroadcast(intent);
     }
 
+    // Navegar a Activity 1
     private void gotoActivity1(View v){
         Intent intent =  new Intent(this, Activity1.class);
         startActivity(intent);

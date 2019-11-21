@@ -2,14 +2,13 @@ package com.norbertoledo.pac_desarrollo_m08;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import androidx.annotation.Nullable;
 
 public class DB extends SQLiteOpenHelper {
 
+    // Decalraciones
     SQLiteDatabase db;
 
 
@@ -19,9 +18,7 @@ public class DB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         this.db = db;
-
     }
 
     @Override
@@ -29,6 +26,7 @@ public class DB extends SQLiteOpenHelper {
 
     }
 
+    // Validar y retornar si existe creada la tabla
     public boolean checkTableExist(){
 
         boolean isExist = false;
@@ -45,6 +43,7 @@ public class DB extends SQLiteOpenHelper {
 
     }
 
+    // Crear la tabla 'users'
     public void createTable(){
 
         db = getWritableDatabase ();
@@ -58,6 +57,7 @@ public class DB extends SQLiteOpenHelper {
         db.execSQL(table);
     }
 
+    // Eliminar la tabla 'users'
     public void deleteTable(){
 
         db = getWritableDatabase ();
@@ -66,6 +66,7 @@ public class DB extends SQLiteOpenHelper {
 
     }
 
+    // Insertar los datos en la tabla
     public boolean setData(String name, String surname, String phone, String gender){
 
         // INSERT UPDATE DELETE
@@ -79,6 +80,7 @@ public class DB extends SQLiteOpenHelper {
         return true;
     }
 
+    // Obtener y retornar el listado de registro de la tabla
     public Cursor getData(){
 
         SQLiteDatabase reader = getReadableDatabase();
@@ -87,6 +89,7 @@ public class DB extends SQLiteOpenHelper {
         return data;
     }
 
+    // Eliminar todos los registros de la tabla
     public boolean deleteData(){
         SQLiteDatabase writer = getWritableDatabase();
         writer.execSQL("DELETE FROM users");

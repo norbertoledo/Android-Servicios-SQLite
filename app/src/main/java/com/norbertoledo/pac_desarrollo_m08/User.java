@@ -1,10 +1,12 @@
 package com.norbertoledo.pac_desarrollo_m08;
 
 public class User {
-    public String name;
-    public String surname;
-    public String phone;
-    public String gender;
+
+    // Declaraciones
+    private String name;
+    private String surname;
+    private String phone;
+    private String gender;
 
     public User(String name, String surname, String phone, String gender){
         this.name = name;

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class Activity2 extends AppCompatActivity implements DialogForm.DialogFormListener{
 
 
+    // Declaraciones
     Button btnCreateTable;
     Button btnDeleteTable;
     Button btnAddUser;
@@ -35,10 +36,12 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
+        // Mensaje de ingreso a Activity 2
         Toast.makeText(this, "Activity 2", Toast.LENGTH_SHORT).show();
         db = new DB(this,"pac", null, 1);
 
 
+        // Instancias
         btnActivity1 = findViewById(R.id.btnActivity1);
         btnCreateTable = findViewById(R.id.btnCreateTable);
         btnDeleteTable = findViewById(R.id.btnDeleteTable);
@@ -48,7 +51,7 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
         usersListText = findViewById(R.id.usersListText);
 
 
-
+        // Acciones de Boton
         btnActivity1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,10 +87,11 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
             }
         });
 
-        //deleteTable();
+
         isTableExists();
     }
 
+    // Evaluar si existe tabla creada para definir estado de botones
     private void isTableExists() {
 
         if(db.checkTableExist()){
@@ -105,12 +109,13 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
         }
     }
 
-
+    // Abrir formulario de registro de nuevo usuario
     private void openDialogForm(){
         dialogForm = new DialogForm();
         dialogForm.show(getSupportFragmentManager(), "Dialog Form");
     }
 
+    // Obtener los datos del Formulario y guardarlos en la DB
     @Override
     public void applyData(String name, String surname, String phone, String gender) {
 
@@ -118,6 +123,7 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
         if(db.setData(name, surname, phone, gender)) setUsersList();
     }
 
+    // Crear tabla 'users'
     private void createTable(){
         db.createTable();
         btnCreateTable.setEnabled(false);
@@ -126,6 +132,7 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
         setUsersList();
     }
 
+    // Eliminar tabla 'users'
     private void deleteTable(){
         db.deleteTable();
         btnCreateTable.setEnabled(true);
@@ -140,10 +147,12 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
         usersListText.setText(R.string.db_no_table);
     }
 
+    // Eliminar todos los registros de la tabla
     private void deleteUsers(){
         if(db.deleteData()) setUsersList();
     }
 
+    // Obtener los usuarios de la DB y listaros en un RecyclerView
     private void setUsersList(){
 
         users.clear();
@@ -187,6 +196,7 @@ public class Activity2 extends AppCompatActivity implements DialogForm.DialogFor
     }
 
 
+    // Navegar a Activity 1
     private void gotoActivity1(View v){
         Intent intent =  new Intent(this, Activity1.class);
         startActivity(intent);

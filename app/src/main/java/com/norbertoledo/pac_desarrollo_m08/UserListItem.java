@@ -6,16 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
 
 
 public class UserListItem extends RecyclerView.Adapter<UserListItem.ViewHolder> {
 
+    // Declaraciones
     private LayoutInflater inflater;
     private ArrayList<User> data;
 
@@ -24,18 +22,17 @@ public class UserListItem extends RecyclerView.Adapter<UserListItem.ViewHolder> 
         this.data = data;
     }
 
+    // Configurar la vista del componente
     @NonNull
     @Override
     public UserListItem.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //View view = inflater.inflate(R.layout.userlist_item, parent);
-        //return new ViewHolder(view);
-
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.userlist_item, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
+    // Asignar a los componentes los valores cada usuario obtenido
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String fullname = data.get(position).getName()+" "+data.get(position).getSurname();
@@ -44,6 +41,7 @@ public class UserListItem extends RecyclerView.Adapter<UserListItem.ViewHolder> 
         holder.phoneItem.setText(phone);
         String gender = data.get(position).getGender();
 
+        // Asignar icono femenimo o masculino de acuerdo al genero del usuario
         if(gender.equals("M")){
             holder.imageItem.setImageResource(R.drawable.user_male_icon);
         }else{
@@ -51,6 +49,7 @@ public class UserListItem extends RecyclerView.Adapter<UserListItem.ViewHolder> 
         }
     }
 
+    // Retornar cantidad de usuarios obtenidos
     @Override
     public int getItemCount() {
         return data.size();

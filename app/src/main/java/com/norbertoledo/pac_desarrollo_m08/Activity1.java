@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class Activity1 extends AppCompatActivity {
 
+    // Declaraciones
     Button btnActivity2;
     Button btnActivity3;
 
@@ -17,13 +18,14 @@ public class Activity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
+        // Instancias
         btnActivity2 = findViewById(R.id.btnActivity2);
         btnActivity3 = findViewById(R.id.btnActivity3);
 
+        // Acciones de Boton
         btnActivity2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //goToActivity2(v);
                 goToActivity(v, Activity2.class);
             }
         });
@@ -31,24 +33,12 @@ public class Activity1 extends AppCompatActivity {
         btnActivity3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //goToActivity3(v);
                 goToActivity(v, Activity3.class);
             }
         });
     }
 
-    /*
-    private void goToActivity2(View v){
-        Intent intent = new Intent(this, Activity2.class);
-        startActivity(intent);
-    }
-
-    private void goToActivity3(View v){
-        Intent intent = new Intent(this, Activity3.class);
-        startActivity(intent);
-    }
-    */
-
+    // Evento de Navegacion
     private void goToActivity(View v, Class theClass){
         Intent intent = new Intent(this, theClass);
         startActivity(intent);
